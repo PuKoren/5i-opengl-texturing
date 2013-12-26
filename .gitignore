@@ -11,3 +11,10 @@
 *.lai
 *.la
 *.a
+
+# Visual Studio trash
+windows/Debug/*
+windows/opengl-texturing.opensdf
+windows/opengl-texturing.sdf
+windows/opengl-texturing.v11.suo
+windows/opengl-texturing.vcxproj.user
