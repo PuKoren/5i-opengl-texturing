@@ -13,8 +13,8 @@
 *.a
 
 # Visual Studio trash
-windows/Debug/*
-windows/opengl-texturing.opensdf
-windows/opengl-texturing.sdf
-windows/opengl-texturing.v11.suo
-windows/opengl-texturing.vcxproj.user
+visual-studio/Debug/*
+visual-studio/opengl-texturing.opensdf
+visual-studio/opengl-texturing.sdf
+visual-studio/opengl-texturing.v11.suo
+visual-studio/opengl-texturing.vcxproj.user
