@@ -44,15 +44,17 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>dependencies\freeglut\include;..\ESGIGL;..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>dependencies\freeglut\include;dependencies\glew\include;..\ESGIGL\;..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>dependencies\freeglut\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>freeglut.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>dependencies\freeglut\lib;dependencies\glew\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32d.lib;freeglut.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy "dependencies\freeglut\bin\freeglut.dll" "Debug\freeglut.dll"</Command>
+      <Command>copy "dependencies\freeglut\bin\freeglut.dll" "Debug\freeglut.dll"
+copy "dependencies\glew\bin\glew32d.dll" "Debug\glew32d.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -70,10 +72,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\ESGIGL\common\cube.cpp" />
+    <ClCompile Include="..\ESGIGL\common\EsgiMesh.cpp" />
+    <ClCompile Include="..\ESGIGL\common\EsgiUtils.cpp" />
+    <ClCompile Include="..\ESGIGL\common\matrix.cpp" />
+    <ClCompile Include="..\ESGIGL\EsgiShader.cpp" />
     <ClCompile Include="..\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\config.h" />
     <ClInclude Include="..\ESGIGL\common\cube.h" />
     <ClInclude Include="..\ESGIGL\common\EsgiFrustum.h" />
     <ClInclude Include="..\ESGIGL\common\EsgiMesh.h" />
@@ -83,6 +89,8 @@
     <ClInclude Include="..\ESGIGL\common\matrix.h" />
     <ClInclude Include="..\ESGIGL\common\vector.h" />
     <ClInclude Include="..\ESGIGL\EsgiShader.h" />
+    <ClInclude Include="..\include\config.h" />
+    <ClInclude Include="..\include\glext.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

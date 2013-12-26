@@ -8,7 +8,8 @@
 // --- Includes --------------------------------------------------------------
 
 #include "cube.h"
-#include "../EsgiGL.h"
+#include <GL/glew.h>
+#include <GL/freeglut.h>
 
 // --- Globales --------------------------------------------------------------
 

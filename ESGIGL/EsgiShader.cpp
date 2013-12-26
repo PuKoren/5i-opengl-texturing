@@ -9,6 +9,7 @@
 
 #include "EsgiShader.h"
 
+#include <iostream>
 #include <cstdio>
 #include <cstdlib>
 
@@ -83,7 +84,7 @@ static GLuint LoadShader(GLenum type, const char *sourceFile)
 			char* infoLog = (char *)malloc(sizeof(char) * infoLen);
 
 			glGetShaderInfoLog(shader, infoLen, NULL, infoLog);
-			ESGI_PRINT("Error compiling shader:\n%s\n", infoLog);  
+			std::cout << "Error compiling shader:" << infoLog << std::endl;
 
 			free(infoLog);
 		}
@@ -159,7 +160,7 @@ bool EsgiShader::Create()
 			char* infoLog = (char *)malloc(sizeof(char) * infoLen);
 
 			glGetProgramInfoLog(m_ProgramObject, infoLen, NULL, infoLog);
-			ESGI_PRINT("Erreur de lien du programme:\n%s\n", infoLog);                     
+			std::cout << "Erreur de lien du programme:" << infoLog << std::endl;      
 
 			free(infoLog);
 		}
@@ -177,7 +178,7 @@ bool EsgiShader::Create()
 		char* infoLog = (char *)malloc(sizeof(char) * infoLen);
 
 		glGetProgramInfoLog(m_ProgramObject, infoLen, NULL, infoLog);
-		ESGI_PRINT("Resultat de la validation du programme:\n%s\n", infoLog);                     
+        std::cout << "Resultat de la validation du programme:" << infoLog  << std::endl;                     
 
 		free(infoLog);
 	}

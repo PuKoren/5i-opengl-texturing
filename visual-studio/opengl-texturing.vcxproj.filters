@@ -21,11 +21,23 @@
     <ClCompile Include="..\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\ESGIGL\EsgiShader.cpp">
+      <Filter>ESGIGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ESGIGL\common\cube.cpp">
+      <Filter>ESGIGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ESGIGL\common\EsgiMesh.cpp">
+      <Filter>ESGIGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ESGIGL\common\EsgiUtils.cpp">
+      <Filter>ESGIGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ESGIGL\common\matrix.cpp">
+      <Filter>ESGIGL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\config.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\ESGIGL\EsgiShader.h">
       <Filter>ESGIGL</Filter>
     </ClInclude>
@@ -52,6 +64,12 @@
     </ClInclude>
     <ClInclude Include="..\ESGIGL\common\vector.h">
       <Filter>ESGIGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\glext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\config.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

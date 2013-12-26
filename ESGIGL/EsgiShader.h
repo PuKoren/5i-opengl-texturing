@@ -9,8 +9,8 @@
 #define ESGI_SHADER
 
 // --- Includes --------------------------------------------------------------
-
-#include <GL\glut.h>
+#include <GL/glew.h>
+#include <GL/freeglut.h>
 
 // --- Classes ---------------------------------------------------------------
 

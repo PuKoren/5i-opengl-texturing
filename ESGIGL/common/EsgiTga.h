@@ -10,7 +10,7 @@
 
 // --- Includes --------------------------------------------------------------
 
-#include "../Plateforme/EsgiPlateforme.h"
+#include <GL/freeglut.h>
 #include <cstdio>
 
 // esgiTexture ---
