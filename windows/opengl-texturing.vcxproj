@@ -44,7 +44,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>dependencies\freeglut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>dependencies\freeglut\include;..\ESGIGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -74,6 +74,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\config.h" />
+    <ClInclude Include="..\ESGIGL\common\cube.h" />
+    <ClInclude Include="..\ESGIGL\common\EsgiFrustum.h" />
+    <ClInclude Include="..\ESGIGL\common\EsgiMesh.h" />
+    <ClInclude Include="..\ESGIGL\common\EsgiTga.h" />
+    <ClInclude Include="..\ESGIGL\common\EsgiTimer.h" />
+    <ClInclude Include="..\ESGIGL\common\EsgiUtils.h" />
+    <ClInclude Include="..\ESGIGL\common\matrix.h" />
+    <ClInclude Include="..\ESGIGL\common\vector.h" />
+    <ClInclude Include="..\ESGIGL\EsgiGL.h" />
+    <ClInclude Include="..\ESGIGL\EsgiShader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

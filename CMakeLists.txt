@@ -22,7 +22,10 @@ if (NOT OPENGL_FOUND)
     message (ERROR " OPENGL not found!")
 endif (NOT OPENGL_FOUND)
 
-add_executable (${PROJECT_NAME} main.cpp)
+file(GLOB SRCS src/*.cpp)
+file(GLOB HDRS include/*.h)
+
+add_executable (${PROJECT_NAME} ${SRCS} ${HDRS} main.cpp)
 
 ########################################################
 # Linking & stuff

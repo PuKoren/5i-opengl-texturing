@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ESGIGL">
+      <UniqueIdentifier>{fe32841e-12cc-4a5d-977f-553aabd51ed7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp">
@@ -22,6 +25,36 @@
   <ItemGroup>
     <ClInclude Include="..\config.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ESGIGL\EsgiShader.h">
+      <Filter>ESGIGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ESGIGL\common\cube.h">
+      <Filter>ESGIGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ESGIGL\common\EsgiFrustum.h">
+      <Filter>ESGIGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ESGIGL\common\EsgiMesh.h">
+      <Filter>ESGIGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ESGIGL\common\EsgiTga.h">
+      <Filter>ESGIGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ESGIGL\common\EsgiTimer.h">
+      <Filter>ESGIGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ESGIGL\common\EsgiUtils.h">
+      <Filter>ESGIGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ESGIGL\common\matrix.h">
+      <Filter>ESGIGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ESGIGL\common\vector.h">
+      <Filter>ESGIGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ESGIGL\EsgiGL.h">
+      <Filter>ESGIGL</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
