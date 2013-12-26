@@ -82,7 +82,6 @@
     <ClInclude Include="..\ESGIGL\common\EsgiUtils.h" />
     <ClInclude Include="..\ESGIGL\common\matrix.h" />
     <ClInclude Include="..\ESGIGL\common\vector.h" />
-    <ClInclude Include="..\ESGIGL\EsgiGL.h" />
     <ClInclude Include="..\ESGIGL\EsgiShader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

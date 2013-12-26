@@ -53,8 +53,5 @@
     <ClInclude Include="..\ESGIGL\common\vector.h">
       <Filter>ESGIGL</Filter>
     </ClInclude>
-    <ClInclude Include="..\ESGIGL\EsgiGL.h">
-      <Filter>ESGIGL</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
