@@ -9,8 +9,6 @@
 
 #include "matrix.h"
 
-#define ESGI_PI 3.14159265f
-
 // ---
 // La formule classique Cij = Aik * Bkj doit etre transposee du fait que 
 // la matrice est stockee en memoire vecteur colonne apres vecteur colonne.

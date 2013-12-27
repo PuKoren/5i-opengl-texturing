@@ -6,6 +6,7 @@
 #include "ESGIGL/common/EsgiTimer.h"
 #include "EsgiGL/common/EsgiTGA.h"
 #include "EsgiGL/common/matrix.h"
+#include "ESGIGL/common/vector.h"
 
 EsgiShader shader;
 
@@ -26,8 +27,10 @@ struct EsgiSprite
 
 	void Process(float elapsedTime)
 	{
+        /*
 		m_Orientation += m_RotationSpeed * elapsedTime;
 		m_Orientation = fmodf(m_Orientation, 360.f);
+        */
 	}
 
 	void Render(GLuint programObject)
@@ -102,8 +105,6 @@ void Update()
     m_ElapsedTime = EsgiTimer::GetElapsedTimeSince(m_PreviousFrameTime);
 	m_PreviousFrameTime = EsgiTimer::GetTimerValue();
 	sprite.Process(m_ElapsedTime);
-    glutSwapBuffers();
-    glutPostRedisplay();
 }
 
 void Draw()
@@ -178,6 +179,30 @@ void Clean()
 	shader.Destroy();
 }
 
+void MouseMove(int x, int y){
+    Vector2<float> mousePos(x, y);
+    Vector2<float> spritePos(sprite.m_Position.x, sprite.m_Position.y);
+
+    //difference between 2 vectors to compute normalized direction
+    mousePos -= spritePos;
+    mousePos.Normalize();
+
+    //dot product for acos (returns angle in radians)
+    double dotProduct = mousePos.Dot(Vector2<int>(0, -1));
+    double angle = acos(dotProduct);
+
+    //if x is in the right part of the screen, we compute angle in a different way (X axis reverted)
+    if(x >= WINDOW_WIDTH/2){
+        angle = ESGI_PI + (ESGI_PI-angle);
+    }
+    //setting new orientation
+    sprite.m_Orientation = (180.f * angle) / ESGI_PI;
+
+    //swaping buffers
+    glutSwapBuffers();
+    glutPostRedisplay();
+}
+
 int main(int argc, char** argv){
 	glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
@@ -187,6 +212,7 @@ int main(int argc, char** argv){
 
     Setup();
 
+    glutPassiveMotionFunc(MouseMove);
     glutIdleFunc(Update);
 	glutDisplayFunc(Draw);
     glutMainLoop();
