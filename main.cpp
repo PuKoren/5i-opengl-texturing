@@ -6,11 +6,11 @@
 
 TP1* tp1;
 
-float ratio_x = WINDOW_WIDTH/WINDOW_WIDTH;
-float ratio_y = WINDOW_HEIGHT/WINDOW_HEIGHT;
+float ratio_x_tp1 = WINDOW_WIDTH/WINDOW_WIDTH;
+float ratio_y_tp1 = WINDOW_HEIGHT/WINDOW_HEIGHT;
 
 void MouseMotionTP1(int x, int y){
-   tp1->MouseMove((int)(x*ratio_x), (int)(y*ratio_y));
+   tp1->MouseMove((int)(x*ratio_x_tp1), (int)(y*ratio_y_tp1));
 }
 
 void IdleTP1(){
@@ -21,10 +21,10 @@ void DrawTP1(){
    tp1->Draw();
 }
 
-void reshape (int width, int height){
+void ReshapeTP1(int width, int height){
     glViewport(0, 0, (GLsizei)width, (GLsizei)height); // Set our viewport to the size of our window
-    ratio_x = WINDOW_WIDTH/(float)width;
-    ratio_y = WINDOW_HEIGHT/(float)height;
+    ratio_x_tp1 = WINDOW_WIDTH/(float)width;
+    ratio_y_tp1 = WINDOW_HEIGHT/(float)height;
     glMatrixMode(GL_PROJECTION); // Switch to the projection matrix so that we can manipulate how our scene is viewed  
     glLoadIdentity(); // Reset the projection matrix to the identity matrix so that we don't get any artifacts (cleaning up)  
     gluPerspective(60, (GLfloat)width / (GLfloat)height, 1.0, 100.0); // Set the Field of view angle (in degrees), the aspect ratio of our window, and the new and far planes
@@ -44,7 +44,7 @@ int main(int argc, char** argv){
         glutPassiveMotionFunc(MouseMotionTP1);
         glutIdleFunc(IdleTP1);
         glutDisplayFunc(DrawTP1);
-        glutReshapeFunc(reshape);
+        glutReshapeFunc(ReshapeTP1);
     }
 
     glutMainLoop();
