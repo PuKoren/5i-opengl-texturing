@@ -79,7 +79,7 @@ copy "dependencies\glew\bin\glew32d.dll" "Debug\glew32d.dll"</Command>
     <ClCompile Include="..\ESGIGL\common\matrix.cpp" />
     <ClCompile Include="..\ESGIGL\EsgiShader.cpp" />
     <ClCompile Include="..\main.cpp" />
-    <ClCompile Include="..\TP1.cpp" />
+    <ClCompile Include="..\src\TP1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ESGIGL\common\cube.h" />

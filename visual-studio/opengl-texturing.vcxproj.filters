@@ -36,11 +36,11 @@
     <ClCompile Include="..\ESGIGL\common\matrix.cpp">
       <Filter>ESGIGL</Filter>
     </ClCompile>
-    <ClCompile Include="..\TP1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\ESGIGL\common\EsgiTga.cpp">
       <Filter>ESGIGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TP1.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
