@@ -11,8 +11,10 @@
 // --- Includes --------------------------------------------------------------
 #include <vector>
 #include <string>
+#include <string.h>
 #include <cassert>
 #include <cstdio>
+#include <stdlib.h>
 #include "matrix.h"
 
 // --- Classes ---------------------------------------------------------------

@@ -18,3 +18,7 @@ visual-studio/opengl-texturing.opensdf
 visual-studio/opengl-texturing.sdf
 visual-studio/opengl-texturing.v11.suo
 visual-studio/opengl-texturing.vcxproj.user
+
+
+# CMake build files
+build/*

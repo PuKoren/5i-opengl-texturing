@@ -32,8 +32,13 @@ endif (NOT OPENGL_FOUND)
 
 file(GLOB SRCS src/*.cpp)
 file(GLOB HDRS include/*.h)
+file(GLOB ESGIGL_HDRS ESGIGL/*.h)
+file(GLOB ESGIGL_SRCS ESGIGL/*.cpp)
+file(GLOB ESGIGL_COMMON ESGIGL/common/*)
 
-add_executable (${PROJECT_NAME} ${SRCS} ${HDRS} main.cpp)
+include_directories("include" "ESGIGL")
+
+add_executable (${PROJECT_NAME} ${SRCS} ${HDRS} ${ESGIGL_HDRS} ${ESGIGL_SRCS} ${ESGIGL_COMMON})
 
 ########################################################
 # Linking & stuff

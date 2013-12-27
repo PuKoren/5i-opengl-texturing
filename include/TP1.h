@@ -7,7 +7,7 @@
 #include "config.h"
 #include "EsgiSprite.h"
 #include "EsgiShader.h"
-#include "common/EsgiTGA.h"
+#include "common/EsgiTga.h"
 #include "common/EsgiTimer.h"
 #include "common/matrix.h"
 #include "common/vector.h"

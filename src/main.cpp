@@ -1,5 +1,5 @@
-#include <GL\glew.h>
-#include <GL\freeglut.h>
+#include <GL/glew.h>
+#include <GL/freeglut.h>
 
 #include "config.h"
 #include "TP1.h"

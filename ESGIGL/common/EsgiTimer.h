@@ -22,7 +22,7 @@ class EsgiTimer
 public:
 	EsgiTimer() : m_StartTime(0), m_StopTime(0)
 	{
-		LARGE_INTEGER QueryFrequency;
+        LARGE_INTEGER QueryFrequency;
 		::QueryPerformanceFrequency(&QueryFrequency);
 		m_Resolution = 1.0 / (double)QueryFrequency.LowPart;
 	}
@@ -35,7 +35,7 @@ public:
 
 	void Begin()
 	{
-		LARGE_INTEGER QueryTime;
+        LARGE_INTEGER QueryTime;
 		::QueryPerformanceCounter(&QueryTime);
 		m_StartTime = QueryTime.QuadPart;
 		m_StopTime = m_StartTime;
@@ -43,19 +43,19 @@ public:
 
 	void End()
 	{
-		LARGE_INTEGER QueryTime;
+        LARGE_INTEGER QueryTime;
 		::QueryPerformanceCounter(&QueryTime);
 		m_StopTime = QueryTime.QuadPart;
 	}
 
 	// ---
 
-	inline __int64 GetStartTime() const 
+    inline __int64 GetStartTime() const
 	{
 		return m_StartTime;
 	}
 
-	inline __int64 GetStopTime() const 
+    inline __int64 GetStopTime() const
 	{
 		return m_StopTime;
 	}
@@ -86,8 +86,8 @@ public:
 
 private:
 	double m_Resolution;
-	__int64 m_StartTime;
-	__int64 m_StopTime;
+    __int64 m_StartTime;
+    __int64 m_StopTime;
 };
 
 #elif defined(__APPLE__)
@@ -171,6 +171,67 @@ private:
 	uint64_t m_StopTime;
 };
 
+#else
+class EsgiTimer
+{
+public:
+    EsgiTimer() : m_StartTime(0), m_StopTime(0)
+    {
+
+    }
+
+    ~EsgiTimer()
+    {
+    }
+
+    // ---
+
+    void Begin()
+    {
+
+    }
+
+    void End()
+    {
+
+    }
+
+    // ---
+
+    inline unsigned int GetStartTime() const
+    {
+        return m_StartTime;
+    }
+
+    inline unsigned int GetStopTime() const
+    {
+        return m_StopTime;
+    }
+
+    inline double GetElapsedTime()
+    {
+        return ((double)(m_StopTime - m_StartTime) * m_Resolution);
+    }
+
+    // ---
+
+    static inline double GetTimerValue()
+    {
+        return 0;
+    }
+
+    static inline double GetElapsedTimeSince(double initial)
+    {
+        double current = GetTimerValue();
+        current -= initial;
+        return 0;
+    }
+
+private:
+    double m_Resolution;
+    unsigned int m_StartTime;
+    unsigned int m_StopTime;
+};
 
 #endif
 
