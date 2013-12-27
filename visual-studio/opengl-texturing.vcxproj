@@ -92,6 +92,11 @@ copy "dependencies\glew\bin\glew32d.dll" "Debug\glew32d.dll"</Command>
     <ClInclude Include="..\include\config.h" />
     <ClInclude Include="..\include\glext.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\resources\Logo-ESGI.tga" />
+    <None Include="..\resources\simpleSprite.frag" />
+    <None Include="..\resources\simpleSprite.vert" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

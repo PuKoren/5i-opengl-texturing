@@ -82,8 +82,7 @@ struct EsgiSprite
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, indices);
         glEnableVertexAttribArray(texcoord_attribute);
 		glDisableVertexAttribArray(position_attribute);
-        
-        
+
         glBindTexture(GL_TEXTURE_2D, 0);
         glDisable(GL_TEXTURE_2D);
 	}
@@ -104,12 +103,13 @@ void Update()
 	m_PreviousFrameTime = EsgiTimer::GetTimerValue();
 	sprite.Process(m_ElapsedTime);
     glutSwapBuffers();
+    glutPostRedisplay();
 }
 
 void Draw()
 {
 	// efface le color buffer
-	glClearColor(0.3f, 0.3f, 0.3f, 1.f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.f);
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 	glEnable(GL_DEPTH_TEST);
 
@@ -129,9 +129,6 @@ void Draw()
 	// alternativement
 	// shader.Unbind();
 }
-
-
-// ---
 
 bool Setup()
 {
@@ -165,7 +162,7 @@ bool Setup()
     
 	sprite.m_Position = vec2(400.f, 300.f);
 	sprite.m_Dimension = vec2(256.f, 256.f);
-	sprite.m_RotationSpeed = 360.0f;
+	sprite.m_RotationSpeed = 180.f;
 	sprite.m_Orientation = 0.f;
 	sprite.m_Color.set(1.f, 0.5f, 0.5f, 1.f);
 
