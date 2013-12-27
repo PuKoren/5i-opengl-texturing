@@ -18,9 +18,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\ESGIGL\EsgiShader.cpp">
       <Filter>ESGIGL</Filter>
     </ClCompile>
@@ -40,6 +37,9 @@
       <Filter>ESGIGL</Filter>
     </ClCompile>
     <ClCompile Include="..\src\TP1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
