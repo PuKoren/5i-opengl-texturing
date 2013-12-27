@@ -9,10 +9,11 @@
 #define ESGI_SCENE_MESH
 
 // --- Includes --------------------------------------------------------------
-
-#include "matrix.h"
 #include <vector>
 #include <string>
+#include <cassert>
+#include <cstdio>
+#include "matrix.h"
 
 // --- Classes ---------------------------------------------------------------
 

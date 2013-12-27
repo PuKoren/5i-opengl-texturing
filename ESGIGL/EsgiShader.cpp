@@ -9,10 +9,6 @@
 
 #include "EsgiShader.h"
 
-#include <iostream>
-#include <cstdio>
-#include <cstdlib>
-
 // --- Fonctions -------------------------------------------------------------
 
 static char* FileToString(const char *sourceFile) 

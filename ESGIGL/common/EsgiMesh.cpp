@@ -23,8 +23,6 @@
 // --- Includes --------------------------------------------------------------
 
 #include "EsgiMesh.h"
-#include <cassert>
-#include <cstdio>
 
 #define ENABLE_SMOOTH_NORMALS 1
 

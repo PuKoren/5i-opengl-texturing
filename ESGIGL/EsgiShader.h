@@ -11,6 +11,9 @@
 // --- Includes --------------------------------------------------------------
 #include <GL/glew.h>
 #include <GL/freeglut.h>
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
 
 // --- Classes ---------------------------------------------------------------
 

@@ -9,7 +9,8 @@
 #define ESGI_CUBE
 
 // --- Includes --------------------------------------------------------------
-
+#include <GL/glew.h>
+#include <GL/freeglut.h>
 #include "vector.h"
 
 // --- Classes ---------------------------------------------------------------
