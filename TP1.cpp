@@ -79,7 +79,7 @@ void TP1::MouseMove(int x, int y){
     double angle = acos(dotProduct);
 
     //if x is in the right part of the screen, we compute angle in a different way (X axis reverted)
-    if(x >= WINDOW_WIDTH/2){
+    if(x >= sprite.m_Position.x){
         angle = ESGI_PI + (ESGI_PI-angle);
     }
     //setting new orientation
