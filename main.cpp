@@ -193,10 +193,6 @@ void MouseMove(int x, int y){
     }
     //setting new orientation
     sprite.m_Orientation = (180.f * angle) / ESGI_PI;
-
-    //swaping buffers
-    glutSwapBuffers();
-    glutPostRedisplay();
 }
 
 int main(int argc, char** argv){
