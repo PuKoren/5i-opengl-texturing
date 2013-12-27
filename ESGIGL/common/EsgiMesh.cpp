@@ -71,7 +71,7 @@ bool EsgiMesh::LoadObj(const char *path)
 				// des normales aux vertices et non simplement des normales aux faces
 #if ENABLE_SMOOTH_NORMALS
 				perVertexNormalCounts.resize(m_vertices.size());
-				for (int index = 0; index < m_vertices.size(); ++index)
+				for (unsigned int index = 0; index < m_vertices.size(); ++index)
 				{
 					perVertexNormalCounts[index] = 0;
 				}
@@ -222,7 +222,7 @@ bool EsgiMesh::LoadObj(const char *path)
 	// post process des normales: 
 	// normale du vertex = une simple moyenne des normales des faces partagees par le vertex
 	//
-	for (int index = 0; index < m_vertices.size(); ++index)
+	for (unsigned int index = 0; index < m_vertices.size(); ++index)
 	{
 		m_normals[index] /= (float)perVertexNormalCounts[index];
 	}

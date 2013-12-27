@@ -69,7 +69,7 @@ bool esgiUtilsSetupShaders()
 		"  gl_FragColor = v_VertexColor;	\n"
 		"}									\n";
 
-	GLint linked;
+	//GLint linked;
 
 	// charge les vertex/fragment shaders
 	basicVertexShader = LoadShader(GL_VERTEX_SHADER, vShaderStr);

@@ -36,6 +36,12 @@
     <ClCompile Include="..\ESGIGL\common\matrix.cpp">
       <Filter>ESGIGL</Filter>
     </ClCompile>
+    <ClCompile Include="..\TP1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ESGIGL\common\EsgiTga.cpp">
+      <Filter>ESGIGL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ESGIGL\EsgiShader.h">
@@ -65,10 +71,13 @@
     <ClInclude Include="..\ESGIGL\common\vector.h">
       <Filter>ESGIGL</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\glext.h">
+    <ClInclude Include="..\include\config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\config.h">
+    <ClInclude Include="..\include\TP1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\EsgiSprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

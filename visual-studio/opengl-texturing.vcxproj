@@ -44,7 +44,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>dependencies\freeglut\include;dependencies\glew\include;..\ESGIGL\;..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include\;..\ESGIGL\;dependencies\freeglut\include;dependencies\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MBCS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -74,10 +74,12 @@ copy "dependencies\glew\bin\glew32d.dll" "Debug\glew32d.dll"</Command>
   <ItemGroup>
     <ClCompile Include="..\ESGIGL\common\cube.cpp" />
     <ClCompile Include="..\ESGIGL\common\EsgiMesh.cpp" />
+    <ClCompile Include="..\ESGIGL\common\EsgiTga.cpp" />
     <ClCompile Include="..\ESGIGL\common\EsgiUtils.cpp" />
     <ClCompile Include="..\ESGIGL\common\matrix.cpp" />
     <ClCompile Include="..\ESGIGL\EsgiShader.cpp" />
     <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\TP1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ESGIGL\common\cube.h" />
@@ -90,7 +92,8 @@ copy "dependencies\glew\bin\glew32d.dll" "Debug\glew32d.dll"</Command>
     <ClInclude Include="..\ESGIGL\common\vector.h" />
     <ClInclude Include="..\ESGIGL\EsgiShader.h" />
     <ClInclude Include="..\include\config.h" />
-    <ClInclude Include="..\include\glext.h" />
+    <ClInclude Include="..\include\EsgiSprite.h" />
+    <ClInclude Include="..\include\TP1.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\resources\Logo-ESGI.tga" />
