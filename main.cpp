@@ -114,12 +114,8 @@ void Draw()
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 	glEnable(GL_DEPTH_TEST);
 
-	// ---
 	GLuint programObject = shader.GetProgram();
 	glUseProgram(programObject);
-	// alternativement
-	// shader.Bind();	
-	// ---
 
 	projectionMatrix = esgiOrtho(0.f, 800.f, 0.f, 600.f, 0.f, 1.f);	
 	GLint projectionUniform = glGetUniformLocation(programObject, "u_ProjectionMatrix");
@@ -127,8 +123,8 @@ void Draw()
 
 	sprite.Render(programObject);
     
-	// alternativement
-	// shader.Unbind();
+    glutSwapBuffers();
+    glutPostRedisplay();
 }
 
 bool Setup()
@@ -207,7 +203,7 @@ int main(int argc, char** argv){
 	glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
     glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-    glutCreateWindow("Texturing - OpenGL");
+    glutCreateWindow("TP1 - 2D - OpenGL");
     glewInit();
 
     Setup();
@@ -215,6 +211,7 @@ int main(int argc, char** argv){
     glutPassiveMotionFunc(MouseMove);
     glutIdleFunc(Update);
 	glutDisplayFunc(Draw);
+
     glutMainLoop();
 
     Clean();
