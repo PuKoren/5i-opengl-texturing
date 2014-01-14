@@ -1,19 +1,13 @@
 #include "TP2.h"
 
 TP2::TP2(){
-    sprite.indices = new unsigned short[12];
+    sprite.indices = new unsigned short[6];
     sprite.indices[0] = 0;
     sprite.indices[1] = 1;
     sprite.indices[2] = 2;
     sprite.indices[3] = 2;
     sprite.indices[4] = 3;
-    sprite.indices[5] = 0;
-    sprite.indices[6] = 0;
-    sprite.indices[7] = 3;
-    sprite.indices[8] = 4;
-    sprite.indices[9] = 4;
-    sprite.indices[10] = 5;
-    sprite.indices[11] = 6;
+    sprite.indices[5] = 1;
 
     m_ElapsedTime = 0;
     m_PreviousFrameTime = 0;
@@ -28,6 +22,9 @@ TP2::~TP2(){
     delete[] sprite.indices;
 }
 
+float eyeX, eyeY, eyeZ = 0;
+float radius = 768;
+
 bool TP2::Init(){
     if(shader.LoadVertexShader("../resources/simpleSprite.vert") && shader.LoadFragmentShader("../resources/simpleSprite.frag")){
 	    shader.Create();
@@ -38,7 +35,7 @@ bool TP2::Init(){
 	// camera a l'origine
 	sprite.viewMatrix.Identity();
 
-    EsgiTexture *logo = esgiReadTGAFile("../resources/logo-esgi.tga");
+    EsgiTexture *logo = esgiReadTGAFile("../resources/kt_rock_1c.tga");
 	if (logo == NULL) {
 		return false;
 	}
@@ -63,6 +60,7 @@ bool TP2::Init(){
 	sprite.m_Orientation = 0.f;
 	sprite.m_Color.set(1.f, 0.5f, 0.5f, 1.f);
 
+    eyeZ = radius;
 	return true;
 }
 
@@ -71,9 +69,13 @@ void TP2::Update(){
 	m_PreviousFrameTime = EsgiTimer::GetTimerValue();
 	sprite.Process((float)m_ElapsedTime);
 }
-int mX = 0;
+
 void TP2::MouseMove(int x, int y){
-    mX = x;
+    float relativeX = (((float)x/(float)WINDOW_WIDTH))*ESGI_PI;
+    //float relativeY = (((float)y/(float)WINDOW_HEIGHT))*ESGI_PI;
+    eyeX = 0 + radius*sin(relativeX);
+    //eyeY = 0 + radius*sin(relativeY);
+    eyeZ = 0 + radius*cos(relativeX);
 }
 void TP2::Draw(){
     // efface le color buffer
@@ -81,6 +83,11 @@ void TP2::Draw(){
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
 
+    glFrontFace(GL_CCW);
+    glCullFace(GL_FRONT);
+    glEnable(GL_CULL_FACE);
+
+    //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
     /*
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -91,7 +98,7 @@ void TP2::Draw(){
 
     //projectionMatrix = esgiOrtho(0.f, WINDOW_WIDTH, 0.f, WINDOW_HEIGHT, 0.f, 1.f);
     projectionMatrix = esgiPerspective(45.f, (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 2048.f);
-    sprite.viewMatrix = esgiLookAt(vec3(mX, 0, 768), vec3(0, 0, 0), vec3(0, 1, 0));
+    sprite.viewMatrix = esgiLookAt(vec3(eyeX, eyeY, eyeZ), vec3(0, 0, 0), vec3(0, 1, 0));
     //projectionMatrix = esgiFrustum(0.f, WINDOW_WIDTH, 0.f, WINDOW_HEIGHT, 0.f, 10.f);
     GLint projectionUniform = glGetUniformLocation(programObject, "u_ProjectionMatrix");
     glUniformMatrix4fv(projectionUniform, 1, 0, &projectionMatrix.I.x);

@@ -72,10 +72,11 @@ struct EsgiSprite
 		GLint texcoord_attribute = glGetAttribLocation(programObject, "a_TexCoord");		
 		glVertexAttribPointer(texcoord_attribute, 2, GL_FLOAT, GL_FALSE, 4*sizeof(GLfloat), &quad[0].texcoord);		
         
-		glEnableVertexAttribArray(position_attribute);
+        glEnableVertexAttribArray(position_attribute);
         glEnableVertexAttribArray(texcoord_attribute);
-        glDrawElements(GL_TRIANGLE_STRIP, 12, GL_UNSIGNED_SHORT, indices);
-        glEnableVertexAttribArray(texcoord_attribute);
+        glDrawElements(GL_TRIANGLE_STRIP, 8, GL_UNSIGNED_SHORT, indices);
+
+        glDisableVertexAttribArray(texcoord_attribute);
 		glDisableVertexAttribArray(position_attribute);
 
         glBindTexture(GL_TEXTURE_2D, 0);
