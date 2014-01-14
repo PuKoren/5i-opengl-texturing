@@ -5,19 +5,22 @@ TP2::TP2(){
     sprite.indices[0] = 0;
     sprite.indices[1] = 1;
     sprite.indices[2] = 2;
-    sprite.indices[3] = 2;
-    sprite.indices[4] = 3;
-    sprite.indices[5] = 1;
+	sprite.indices[3] = 3;
+	sprite.indices[4] = 0;
+	sprite.indices[5] = 2;
 
     m_ElapsedTime = 0;
     m_PreviousFrameTime = 0;
+
+	logo = NULL;
 }
 
 TP2::~TP2(){
     if(sprite.m_TextureId)
     {
         glDeleteTextures(1, &sprite.m_TextureId);
-    }    
+    }
+	delete logo;
 	shader.Destroy();
     delete[] sprite.indices;
 }
@@ -35,7 +38,7 @@ bool TP2::Init(){
 	// camera a l'origine
 	sprite.viewMatrix.Identity();
 
-    EsgiTexture *logo = esgiReadTGAFile("../resources/kt_rock_1c.tga");
+    logo = esgiReadTGAFile("../resources/kt_rock_1c.tga");
 	if (logo == NULL) {
 		return false;
 	}

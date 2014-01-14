@@ -80,6 +80,7 @@ copy "dependencies\glew\bin\glew32d.dll" "Debug\glew32d.dll"</Command>
     <ClCompile Include="..\ESGIGL\EsgiShader.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\TP1.cpp" />
+    <ClCompile Include="..\src\TP2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ESGIGL\common\cube.h" />
@@ -94,6 +95,7 @@ copy "dependencies\glew\bin\glew32d.dll" "Debug\glew32d.dll"</Command>
     <ClInclude Include="..\include\config.h" />
     <ClInclude Include="..\include\EsgiSprite.h" />
     <ClInclude Include="..\include\TP1.h" />
+    <ClInclude Include="..\include\TP2.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\resources\Logo-ESGI.tga" />

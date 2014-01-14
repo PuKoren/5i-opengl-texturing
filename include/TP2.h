@@ -26,6 +26,7 @@ private:
     double m_ElapsedTime;
     EsgiShader shader;
     mat4 projectionMatrix;
+	EsgiTexture *logo;
 };
 
 #endif

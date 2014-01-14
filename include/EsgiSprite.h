@@ -74,7 +74,9 @@ struct EsgiSprite
         
         glEnableVertexAttribArray(position_attribute);
         glEnableVertexAttribArray(texcoord_attribute);
-        glDrawElements(GL_TRIANGLE_STRIP, 8, GL_UNSIGNED_SHORT, indices);
+		//glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, indices);
+		//glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
 
         glDisableVertexAttribArray(texcoord_attribute);
 		glDisableVertexAttribArray(position_attribute);

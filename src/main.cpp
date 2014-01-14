@@ -74,7 +74,7 @@ int main(int argc, char** argv){
     }
 
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-    glutCreateWindow("TP1 - 3D - OpenGL");
+    glutCreateWindow("TP2 - 3D - OpenGL");
     tp2 = new TP2();
     if(tp2->Init()){
         glutPassiveMotionFunc(MouseMotionTP2);
@@ -86,6 +86,8 @@ int main(int argc, char** argv){
     glutMainLoop();
 
     delete tp1;
+	delete tp2;
+
     glutExit();
     return EXIT_SUCCESS;
 }
