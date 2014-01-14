@@ -25,7 +25,7 @@ struct EsgiSprite
         */
 	}
 
-	void Render(GLuint programObject)
+    void Render(GLuint programObject)
 	{
 		struct vertex_attribute
 		{
@@ -44,7 +44,7 @@ struct EsgiSprite
 		quad[3].texcoord = vec2(0.f, 1.f);
         
         // tourne autour de l'axe Z du monde
-		mat4 world = esgiRotateZ(m_Orientation);
+        mat4 world = esgiRotateZ(m_Orientation);
 		world.T.set(m_Position.x, m_Position.y, 0, 1);
         
         // texture
@@ -74,7 +74,7 @@ struct EsgiSprite
         
 		glEnableVertexAttribArray(position_attribute);
         glEnableVertexAttribArray(texcoord_attribute);
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, indices);
+        glDrawElements(GL_TRIANGLE_STRIP, 12, GL_UNSIGNED_SHORT, indices);
         glEnableVertexAttribArray(texcoord_attribute);
 		glDisableVertexAttribArray(position_attribute);
 

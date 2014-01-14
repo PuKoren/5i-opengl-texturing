@@ -1,19 +1,25 @@
-#include "TP1.h"
+#include "TP2.h"
 
-TP1::TP1(){
-    sprite.indices = new unsigned short[6];
+TP2::TP2(){
+    sprite.indices = new unsigned short[12];
     sprite.indices[0] = 0;
     sprite.indices[1] = 1;
     sprite.indices[2] = 2;
     sprite.indices[3] = 2;
     sprite.indices[4] = 3;
     sprite.indices[5] = 0;
+    sprite.indices[6] = 0;
+    sprite.indices[7] = 3;
+    sprite.indices[8] = 4;
+    sprite.indices[9] = 4;
+    sprite.indices[10] = 5;
+    sprite.indices[11] = 6;
 
     m_ElapsedTime = 0;
     m_PreviousFrameTime = 0;
 }
 
-TP1::~TP1(){
+TP2::~TP2(){
     if(sprite.m_TextureId)
     {
         glDeleteTextures(1, &sprite.m_TextureId);
@@ -22,7 +28,7 @@ TP1::~TP1(){
     delete[] sprite.indices;
 }
 
-bool TP1::Init(){
+bool TP2::Init(){
     if(shader.LoadVertexShader("../resources/simpleSprite.vert") && shader.LoadFragmentShader("../resources/simpleSprite.frag")){
 	    shader.Create();
     }else{
@@ -51,8 +57,8 @@ bool TP1::Init(){
     delete[] logo->texels;
     delete logo;
     
-    sprite.m_Position = vec2(WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
-	sprite.m_Dimension = vec2(256.f, 256.f);
+    sprite.m_Position = vec2(0, 0);
+    sprite.m_Dimension = vec2(256.f, 256.f);
 	sprite.m_RotationSpeed = 180.f;
 	sprite.m_Orientation = 0.f;
 	sprite.m_Color.set(1.f, 0.5f, 0.5f, 1.f);
@@ -60,46 +66,39 @@ bool TP1::Init(){
 	return true;
 }
 
-void TP1::Update(){
+void TP2::Update(){
     m_ElapsedTime = EsgiTimer::GetElapsedTimeSince(m_PreviousFrameTime);
 	m_PreviousFrameTime = EsgiTimer::GetTimerValue();
-    sprite.Process((float)m_ElapsedTime);
+	sprite.Process((float)m_ElapsedTime);
 }
-
-void TP1::MouseMove(int x, int y){
-    Vector2<float> mousePos((float)x, (float)y);
-    Vector2<float> spritePos((float)sprite.m_Position.x, (float)sprite.m_Position.y);
-
-    //difference between 2 vectors to compute normalized direction
-    mousePos -= spritePos;
-    mousePos.Normalize();
-
-    //dot product for acos (returns angle in radians)
-    double dotProduct = mousePos.Dot(Vector2<int>(0, -1));
-    double angle = acos(dotProduct);
-
-    //if x is in the right part of the screen, we compute angle in a different way (X axis reverted)
-    if(x >= sprite.m_Position.x){
-        angle = ESGI_PI + (ESGI_PI-angle);
-    }
-    //setting new orientation
-    sprite.m_Orientation = (float)(180.f * angle) / ESGI_PI;
+int mX = 0;
+void TP2::MouseMove(int x, int y){
+    mX = x;
 }
-
-void TP1::Draw(){
+void TP2::Draw(){
     // efface le color buffer
 	glClearColor(0.0f, 0.0f, 0.0f, 1.f);
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+    glEnable(GL_DEPTH_TEST);
 
-	GLuint programObject = shader.GetProgram();
-	glUseProgram(programObject);
+    /*
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(45.f, (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 1.f, 100.f);
+    */
+    GLuint programObject = shader.GetProgram();
+    glUseProgram(programObject);
 
-    projectionMatrix = esgiOrtho(0.f, WINDOW_WIDTH, 0.f, WINDOW_HEIGHT, 0.f, 1.f);
-	GLint projectionUniform = glGetUniformLocation(programObject, "u_ProjectionMatrix");
-	glUniformMatrix4fv(projectionUniform, 1, 0, &projectionMatrix.I.x);	
+    //projectionMatrix = esgiOrtho(0.f, WINDOW_WIDTH, 0.f, WINDOW_HEIGHT, 0.f, 1.f);
+    projectionMatrix = esgiPerspective(45.f, (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 2048.f);
+    sprite.viewMatrix = esgiLookAt(vec3(mX, 0, 768), vec3(0, 0, 0), vec3(0, 1, 0));
+    //projectionMatrix = esgiFrustum(0.f, WINDOW_WIDTH, 0.f, WINDOW_HEIGHT, 0.f, 10.f);
+    GLint projectionUniform = glGetUniformLocation(programObject, "u_ProjectionMatrix");
+    glUniformMatrix4fv(projectionUniform, 1, 0, &projectionMatrix.I.x);
+    //glFrustum(0, WINDOW_WIDTH, 0, WINDOW_HEIGHT, 1.f, 100.f);
 
 	sprite.Render(programObject);
-    
+
     glutSwapBuffers();
     glutPostRedisplay();
 }
