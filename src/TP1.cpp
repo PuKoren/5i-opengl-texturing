@@ -1,11 +1,13 @@
 #include "TP1.h"
 
 TP1::TP1(){
-    sprite.indices = new unsigned short[4];
+    sprite.indices = new unsigned short[6];
     sprite.indices[0] = 0;
     sprite.indices[1] = 1;
     sprite.indices[2] = 2;
-    sprite.indices[3] = 3;
+    sprite.indices[3] = 2;
+    sprite.indices[4] = 3;
+    sprite.indices[5] = 0;
 
     m_ElapsedTime = 0;
     m_PreviousFrameTime = 0;
