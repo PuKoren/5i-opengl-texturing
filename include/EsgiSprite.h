@@ -31,7 +31,7 @@ struct EsgiSprite
 		{
 			vec2 position;
 			vec2 texcoord;
-		} quad[4];
+        } quad[5];
       
 		// le sprite dans le repere de l'objet
 		quad[0].position = m_Dimension*0.5f;
@@ -42,6 +42,8 @@ struct EsgiSprite
         quad[2].texcoord = vec2(0.f, 0.f);
 		quad[3].position = vec2(-m_Dimension.x*0.5f, m_Dimension.y*0.5f);
 		quad[3].texcoord = vec2(0.f, 1.f);
+        quad[4].position = vec2(0, 0);
+        quad[4].texcoord = vec2(0.5f, 0.5f);
         
         // tourne autour de l'axe Z du monde
         mat4 world = esgiRotateZ(m_Orientation);
@@ -74,9 +76,9 @@ struct EsgiSprite
         
         glEnableVertexAttribArray(position_attribute);
         glEnableVertexAttribArray(texcoord_attribute);
-		//glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, indices);
-		//glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
+        //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+        glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_SHORT, indices);
+        //glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
 
         glDisableVertexAttribArray(texcoord_attribute);
 		glDisableVertexAttribArray(position_attribute);
