@@ -1,22 +1,16 @@
 #include "TP2.h"
 
 TP2::TP2(){
-    sprite.indices = new unsigned short[12];
+    sprite.indices = new unsigned short[8];
     sprite.indices[0] = 0;
     sprite.indices[1] = 1;
     sprite.indices[2] = 4;
 
-    sprite.indices[3] = 1;
-    sprite.indices[4] = 2;
-    sprite.indices[5] = 4;
-
-    sprite.indices[6] = 2;
-    sprite.indices[7] = 3;
-    sprite.indices[8] = 4;
-
-    sprite.indices[9] = 3;
-    sprite.indices[10] = 0;
-    sprite.indices[11] = 4;
+    sprite.indices[3] = 2;
+    sprite.indices[4] = 3;
+    sprite.indices[5] = 3;
+    sprite.indices[6] = 4;
+    sprite.indices[7] = 0;
 
     m_ElapsedTime = 0;
     m_PreviousFrameTime = 0;
