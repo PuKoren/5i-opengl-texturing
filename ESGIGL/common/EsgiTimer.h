@@ -172,10 +172,11 @@ private:
 };
 
 #else
+#include <sys/time.h>
 class EsgiTimer
 {
 public:
-    EsgiTimer() : m_StartTime(0), m_StopTime(0)
+    EsgiTimer()
     {
 
     }
@@ -188,49 +189,52 @@ public:
 
     void Begin()
     {
-
+        gettimeofday(&start, NULL);
+        stop = start;
     }
 
     void End()
     {
-
+        gettimeofday(&stop, NULL);
     }
 
     // ---
 
-    inline unsigned int GetStartTime() const
+    inline timeval GetStartTime() const
     {
-        return m_StartTime;
+        return start;
     }
 
-    inline unsigned int GetStopTime() const
+    inline timeval GetStopTime() const
     {
-        return m_StopTime;
+        return stop;
     }
 
     inline double GetElapsedTime()
     {
-        return ((double)(m_StopTime - m_StartTime) * m_Resolution);
+        return ((double)(start.tv_usec - stop.tv_usec))*0.0000001f;
     }
-
-    // ---
 
     static inline double GetTimerValue()
     {
-        return 0;
+        timeval tmp;
+        gettimeofday(&tmp, NULL);
+        return tmp.tv_usec*0.0000001f;
     }
 
     static inline double GetElapsedTimeSince(double initial)
     {
-        double current = GetTimerValue();
-        current -= initial;
-        return 0;
+       double elapsed = GetTimerValue() - initial;
+       if(elapsed > 0){
+           return elapsed;
+       }else{
+           return 0;
+       }
     }
 
 private:
-    double m_Resolution;
-    unsigned int m_StartTime;
-    unsigned int m_StopTime;
+    timeval start, stop;
+
 };
 
 #endif
