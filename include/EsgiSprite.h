@@ -32,19 +32,27 @@ struct EsgiSprite
 		{
 			vec2 position;
 			vec2 texcoord;
-        } quad[5];
+        } quad[6];
       
 		// le sprite dans le repere de l'objet
-		quad[0].position = m_Dimension*0.5f;
-        quad[0].texcoord = vec2(1.f, 1.f);
-		quad[1].position = vec2(m_Dimension.x*0.5f, -m_Dimension.y*0.5f);
-		quad[1].texcoord = vec2(1.f, 0.f);
-        quad[2].position = m_Dimension*-0.5f;
-        quad[2].texcoord = vec2(0.f, 0.f);
-		quad[3].position = vec2(-m_Dimension.x*0.5f, m_Dimension.y*0.5f);
-		quad[3].texcoord = vec2(0.f, 1.f);
-        quad[4].position = vec2(0, 0);
-        quad[4].texcoord = vec2(0.5f, 0.5f);
+        //top left
+        quad[0].position = m_Dimension * -0.5f;
+        quad[0].texcoord = vec2(0.f, 0.f);
+        //top middle
+        quad[1].position = vec2(0.f, m_Dimension.y * -0.5f);
+        quad[1].texcoord = vec2(0.5f, 0.f);
+        //top right
+        quad[2].position = vec2(m_Dimension.x * 0.5f, m_Dimension.y * -0.5f);
+        quad[2].texcoord = vec2(1.f, 0.f);
+        //bottom right
+        quad[3].position = m_Dimension*0.5f;
+        quad[3].texcoord = vec2(1.f, 1.f);
+        //bottom middle
+        quad[4].position = vec2(0.f, m_Dimension.y*0.5f);
+        quad[4].texcoord = vec2(0.5f, 1.f);
+        //bottom left
+        quad[5].position = vec2(m_Dimension.x*-0.5f, m_Dimension.y*0.5f);
+        quad[5].texcoord = vec2(0.f, 1.f);
         
         // tourne autour de l'axe Z du monde
         mat4 world = esgiRotateZ(m_Orientation);
@@ -79,7 +87,7 @@ struct EsgiSprite
         glEnableVertexAttribArray(position_attribute);
         glEnableVertexAttribArray(texcoord_attribute);
 
-        glDrawElements(GL_TRIANGLE_STRIP, 8, GL_UNSIGNED_SHORT, indices);
+        glDrawElements(GL_TRIANGLE_STRIP, 6, GL_UNSIGNED_SHORT, indices);
 
         glDisableVertexAttribArray(texcoord_attribute);
 		glDisableVertexAttribArray(position_attribute);

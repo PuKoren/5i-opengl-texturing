@@ -1,16 +1,14 @@
 #include "TP2.h"
 
 TP2::TP2(){
-    sprite.indices = new unsigned short[8];
+    sprite.indices = new unsigned short[6];
     sprite.indices[0] = 0;
-    sprite.indices[1] = 1;
-    sprite.indices[2] = 4;
+    sprite.indices[1] = 5;
+    sprite.indices[2] = 1;
 
-    sprite.indices[3] = 2;
-    sprite.indices[4] = 3;
+    sprite.indices[3] = 4;
+    sprite.indices[4] = 2;
     sprite.indices[5] = 3;
-    sprite.indices[6] = 4;
-    sprite.indices[7] = 0;
 
     m_ElapsedTime = 0;
     m_PreviousFrameTime = 0;
@@ -40,6 +38,7 @@ bool TP2::Init(){
     }else{
         return false;
     }
+
 
 	// camera a l'origine
 	sprite.viewMatrix.Identity();

@@ -3,11 +3,12 @@
 TP1::TP1(){
     sprite.indices = new unsigned short[6];
     sprite.indices[0] = 0;
-    sprite.indices[1] = 1;
-    sprite.indices[2] = 2;
-    sprite.indices[3] = 2;
+    sprite.indices[1] = 2;
+    sprite.indices[2] = 5;
+    sprite.indices[3] = 3;
+    //these are useless just to fill the array, since we are using the same GLDrawElements with 6 elements
     sprite.indices[4] = 3;
-    sprite.indices[5] = 0;
+    sprite.indices[5] = 3;
 
     m_ElapsedTime = 0;
     m_PreviousFrameTime = 0;
