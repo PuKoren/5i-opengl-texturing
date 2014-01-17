@@ -15,6 +15,8 @@ TP2::TP2(){
     m_ElapsedTime = 0;
     m_PreviousFrameTime = 0;
 
+    sprite.m_OrientationX = -90.f;
+
 	logo = NULL;
 }
 
@@ -28,8 +30,9 @@ TP2::~TP2(){
     delete[] sprite.indices;
 }
 
-float eyeX, eyeY, eyeZ = 0;
-float radius = 768;
+float eyeX, eyeZ = 0;
+float eyeY = 400.f;
+float radius = 512;
 
 bool TP2::Init(){
     if(shader.LoadVertexShader("../resources/simpleSprite.vert") && shader.LoadFragmentShader("../resources/simpleSprite.frag")){
@@ -67,6 +70,7 @@ bool TP2::Init(){
 	sprite.m_Color.set(1.f, 0.5f, 0.5f, 1.f);
 
     eyeZ = radius;
+
 	return true;
 }
 

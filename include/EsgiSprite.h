@@ -13,6 +13,7 @@ struct EsgiSprite
     mat4    viewMatrix;
     GLuint  m_TextureId;
 	float	m_Orientation;
+    float   m_OrientationX;
 	float	m_RotationSpeed;
 
 	unsigned short* indices;
@@ -47,6 +48,7 @@ struct EsgiSprite
         
         // tourne autour de l'axe Z du monde
         mat4 world = esgiRotateZ(m_Orientation);
+        world = esgiMultiplyMatrix(world, esgiRotateX(m_OrientationX));
 		world.T.set(m_Position.x, m_Position.y, 0, 1);
         
         // texture
@@ -76,9 +78,8 @@ struct EsgiSprite
         
         glEnableVertexAttribArray(position_attribute);
         glEnableVertexAttribArray(texcoord_attribute);
-        //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+
         glDrawElements(GL_TRIANGLE_STRIP, 8, GL_UNSIGNED_SHORT, indices);
-        //glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
 
         glDisableVertexAttribArray(texcoord_attribute);
 		glDisableVertexAttribArray(position_attribute);
