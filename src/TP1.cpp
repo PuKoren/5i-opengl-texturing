@@ -59,6 +59,7 @@ bool TP1::Init(){
 	sprite.m_Dimension = vec2(256.f, 256.f);
 	sprite.m_RotationSpeed = 180.f;
 	sprite.m_Orientation = 0.f;
+	sprite.m_OrientationX = 0.f;
 	sprite.m_Color.set(1.f, 0.5f, 0.5f, 1.f);
 
 	return true;
